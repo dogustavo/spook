@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
         transform: [
             {rotate: '45deg'}
         ]
-
     },
     triangleThree: {
         position: 'absolute',
