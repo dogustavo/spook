@@ -25,5 +25,9 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:dogustavo/spook.git",
+  "author": "gustavo <gustavo.oliveira@atuo.in>",
+  "license": "MIT"
 }
