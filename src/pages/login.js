@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 function Login(){
     return (
         <View style={styles.wrapContent}>
-            <Text style={styles.text}>Alisson funcionou!</Text>
+            <Text style={styles.text}>Hellow World!</Text>
         </View>
     );
 }
