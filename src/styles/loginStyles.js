@@ -7,7 +7,7 @@ const loginStyles = StyleSheet.create({
         padding: 30,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#303036'
+        backgroundColor: '#040F0F'
     },
     triangleOne: {
         position: 'absolute',
@@ -48,7 +48,7 @@ const loginStyles = StyleSheet.create({
     },
     input: {
         alignSelf: 'center',
-        backgroundColor: '#303036', 
+        backgroundColor: '#040F0F', 
         height: 46,
         width: 310,
         borderWidth: 1,
@@ -61,7 +61,7 @@ const loginStyles = StyleSheet.create({
     },
     inputPassword: {
         alignSelf: 'center',
-        backgroundColor: '#303036', 
+        backgroundColor: '#040F0F', 
         height: 46,
         width: 310,
         borderWidth: 1,
@@ -79,7 +79,7 @@ const loginStyles = StyleSheet.create({
         
     },
     span:{
-        color: '#FD3539',
+        color: '#FFF',
         textDecorationLine: 'underline'
     },
     buttonLogin:{
@@ -108,7 +108,7 @@ const loginStyles = StyleSheet.create({
         borderColor: '#FD3539',
         borderRadius: 7,
         marginTop: 10,
-        backgroundColor: '#303036',
+        backgroundColor: '#040F0F',
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 5, 
