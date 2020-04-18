@@ -11,7 +11,12 @@ import createUser from '../../styles/createUser';
 import stepProgress from '../../styles/stepProgress';
 import camera from '../../assets/images/take-picture.png';
 
-export default function userStepOne() {
+export default function userStepOne({ navigation }) {
+
+    function navigateToLogin() {
+        navigation.navigate('Login');
+    }
+
     return (
         <View style={createUser.wrapContent}>
             <View style={createUser.triangleOne}/>
@@ -30,7 +35,7 @@ export default function userStepOne() {
 
                     <View style={createUser.modalFooter}>
                         <TouchableOpacity style={createUser.buttonCancel} >
-                            <Text style={createUser.modalButtonText}>Cancelar</Text>
+                            <Text onPress={navigateToLogin} style={createUser.modalButtonText}>Cancelar</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={createUser.buttonNext} >
                             <Text style={createUser.modalButtonText}>Próximo</Text>
