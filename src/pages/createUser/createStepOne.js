@@ -2,10 +2,14 @@ import React from 'react';
 import Modal from 'react-native-modal';
 import { 
     View, 
-    Text
+    Text,
+    TouchableOpacity,
+    Image
 } from 'react-native';
 
 import createUser from '../../styles/createUser';
+import stepProgress from '../../styles/stepProgress';
+import camera from '../../assets/images/take-picture.png';
 
 export default function userStepOne() {
     return (
@@ -19,7 +23,19 @@ export default function userStepOne() {
                 style={createUser.modalStyle}
             >
                 <View style={createUser.modalContent}>
+                    <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
+                    <TouchableOpacity style={createUser.cameraOpen} >
+                        <Image source={ camera } style={createUser.cameraImage}/>
+                    </TouchableOpacity>
 
+                    <View style={createUser.modalFooter}>
+                        <TouchableOpacity style={createUser.buttonCancel} >
+                            <Text style={createUser.modalButtonText}>Cancelar</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={createUser.buttonNext} >
+                            <Text style={createUser.modalButtonText}>Próximo</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </Modal>
             

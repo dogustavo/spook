@@ -56,8 +56,44 @@ const createUser = StyleSheet.create({
     modalContent: {
         flex: 1,
         alignItems:'center',
-        justifyContent: 'center'
-        
+        justifyContent: 'space-between'
+    },
+    modalTitle: {
+        textTransform: 'uppercase',
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginTop: 20        
+    },
+    modalFooter: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: 330,
+        justifyContent: 'space-around',
+        marginBottom: 20
+    },
+    buttonCancel: {
+        width: 110,
+        height: 45,
+        backgroundColor: '#FD3539',
+        borderRadius: 7,
+        elevation: 5,
+        justifyContent: 'center',
+        alignItems: 'center'  
+    },
+    buttonNext: {
+        width: 110,
+        height: 45,
+        backgroundColor: '#00E673',
+        borderRadius: 7,
+        elevation: 5,
+        justifyContent: 'center',
+        alignItems: 'center'  
+    },
+    modalButtonText: {
+        color: '#FFF',
+        fontSize: 16,
+        fontWeight: 'normal',
+        textTransform: 'uppercase'
     }
 });
 
