@@ -10,7 +10,11 @@ import {
 import logo from '../../assets/images/logo.png';
 import loginStyles from '../../styles/loginStyles';
 
-function Login(){
+function Login({ navigation }){
+    function navigateToCreatUser() {
+        navigation.navigate('Create');
+    }
+
     return (
         <View style={loginStyles.wrapContent}>
             <View style={loginStyles.triangleOne}/>
@@ -38,7 +42,7 @@ function Login(){
                     <Text style={loginStyles.span}>Esqueci minha senha</Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Text style={loginStyles.span}>Criar conta</Text>
+                    <Text style={loginStyles.span} onPress={navigateToCreatUser}>Criar conta</Text>
                 </TouchableOpacity>
             </View>
 
