@@ -10,12 +10,20 @@ import {
 import createUser from '../../styles/createUser';
 import stepProgress from '../../styles/stepProgress';
 import camera from '../../assets/images/take-picture.png';
+import storageUser from "../store";
+
 
 export default function userStepOne({ navigation }) {
 
     function navigateToLogin() {
         navigation.navigate('Login');
     }
+
+    function SaveImg(){
+        storageUser()
+    }
+
+
 
     return (
         <View style={createUser.wrapContent}>
