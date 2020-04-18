@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { 
+    View, 
+    StyleSheet, 
+    Image 
+} from 'react-native';
+
+import logo from '../assets/images/Logo.png';
 
 function Login(){
     return (
@@ -7,6 +13,7 @@ function Login(){
             <View style={styles.triangleOne}/>
             <View style={styles.triangleTwo}/>
             <View style={styles.triangleThree}/>
+            <Image source={ logo } style={styles.logoImage}/>
         </View>
     );
 }
@@ -50,9 +57,10 @@ const styles = StyleSheet.create({
             {rotate: '130deg'}
         ]
     },
-    text: {
-        fontSize: 30,
-        fontWeight: 'bold'
+    logoImage: {
+        width: 190,
+        alignSelf: 'center',
+        top: 110
     }
 })
 
