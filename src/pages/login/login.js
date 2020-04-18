@@ -19,11 +19,15 @@ function Login(){
             <Image source={ logo } style={loginStyles.logoImage}/>
 
             <TextInput 
+                autoCapitalize='none'
+                autoCorrect={false}
                 style={loginStyles.input}
                 placeholder='E-MAIL'
                 placeholderTextColor='#FFF'
             />  
-            <TextInput 
+            <TextInput
+                autoCapitalize='none'
+                secureTextEntry={true}
                 style={loginStyles.inputPassword}
                 placeholder='SENHA'
                 placeholderTextColor='#FFF'

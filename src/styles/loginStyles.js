@@ -80,7 +80,8 @@ const loginStyles = StyleSheet.create({
     },
     span:{
         color: '#FFF',
-        textDecorationLine: 'underline'
+        textDecorationLine: 'underline',
+        marginTop: 5
     },
     buttonLogin:{
         alignSelf: 'center',
