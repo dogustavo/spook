@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-native-modal';
+import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
 import { 
     View, 
     Text,
@@ -8,28 +9,22 @@ import {
 } from 'react-native';
 
 import createUser from '../../styles/createUser';
-import stepProgress from '../../styles/stepProgress';
 import camera from '../../assets/images/take-picture.png';
-import storageUser from "../store";
 
 
 export default function userStepOne({ navigation }) {
+    const [isModal, setModal] = useState(true);
+
+    const handleClick = () => {
+        setModal(!isModal);
+        navigateToLogin();
+    }
 
     function navigateToLogin() {
         navigation.navigate('Login');
     }
 
-    function SaveImg(){
-        storageUser()
-    }
-
-
-    const [isModal, setModal] = useState(true);
-
-    const handleClick = evt => {
-        setModal(!isModal);
-        navigateToLogin();
-    }
+    
 
     return (
         <View style={createUser.wrapContent}>
@@ -41,21 +36,47 @@ export default function userStepOne({ navigation }) {
                 isVisible={isModal}
                 style={createUser.modalStyle}
             >
-                <View style={createUser.modalContent}>
-                    <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
-                    <TouchableOpacity style={createUser.cameraOpen} >
-                        <Image source={ camera } style={createUser.cameraImage}/>
-                    </TouchableOpacity>
+                <ProgressSteps
+                    progressBarColor={'#FD3539'}
+                    activeStepIconBorderColor={'#FD3539'}
+                    completedStepIconColor={'#FD3539'}
+                    labelColor={'#FD3539'}
+                    activeLabelColor={'#FD3539'}
+                >
+                    <ProgressStep 
+                        label="Câmera"
+                        removeBtnRow={true}
+                    >
+                        <View>
+                            <View style={createUser.modalContent}>
+                                <TouchableOpacity style={createUser.cameraOpen} >
+                                    <Image source={ camera } style={createUser.cameraImage}/>
+                                </TouchableOpacity>
+                                <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
 
-                    <View style={createUser.modalFooter}>
-                        <TouchableOpacity style={createUser.buttonCancel} >
-                            <Text onPress={handleClick} style={createUser.modalButtonText}>Cancelar</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={createUser.buttonNext} >
-                            <Text style={createUser.modalButtonText}>Próximo</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                                <View style={createUser.modalFooter}>
+                                    <TouchableOpacity style={createUser.buttonCancel} >
+                                        <Text onPress={handleClick} style={createUser.modalButtonText}>Cancelar</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={createUser.buttonNext} >
+                                        <Text style={createUser.modalButtonText}>Próximo</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </ProgressStep>
+
+                    <ProgressStep label="Cadastro">
+                        <View>
+                        </View>
+                    </ProgressStep>
+
+                    <ProgressStep label="Cadastro">
+                        <View>
+                        </View>
+                    </ProgressStep>
+                </ProgressSteps>
+                
             </Modal>
             
         </View>
