@@ -78,7 +78,8 @@ const createUser = StyleSheet.create({
         borderRadius: 7,
         elevation: 5,
         justifyContent: 'center',
-        alignItems: 'center'  
+        alignItems: 'center',
+        marginRight: 10    
     },
     buttonNext: {
         width: 110,
@@ -87,13 +88,17 @@ const createUser = StyleSheet.create({
         borderRadius: 7,
         elevation: 5,
         justifyContent: 'center',
-        alignItems: 'center'  
+        alignItems: 'center',
+        marginLeft: 10  
     },
     modalButtonText: {
         color: '#FFF',
         fontSize: 16,
         fontWeight: 'normal',
         textTransform: 'uppercase'
+    },
+    cameraOpen: {
+        marginTop: 50
     }
 });
 
