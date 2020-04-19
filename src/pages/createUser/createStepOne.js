@@ -11,8 +11,6 @@ import {
 
 import createUser from '../../styles/createUser';
 import camera from '../../assets/images/take-picture.png';
-// import storageUser from "../store";
-import ImagePicker from "react-native-image-picker";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import stepElement from '../../styles/stepElement';
 
