@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import Modal from 'react-native-modal';
 import ImagePicker from 'react-native-image-picker';
+import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
 
 import { 
     View, 
@@ -23,7 +24,15 @@ export default function userStepOne({ navigation }) {
     const [isModal, setModal] = useState(true);
     const [isStep, setStep] = useState(0);
 
-    useEffect(()=>{console.log(image)},[image])
+  
+    const nextStep = async () => {
+        await setStep(isStep + 1);
+    }
+    const backStep = async () => {
+        console.log('clicado');
+        
+        await setStep(isStep - 1);
+    }
     
     // function clearImage() {
     //     setImage(null)
@@ -33,9 +42,8 @@ export default function userStepOne({ navigation }) {
         navigation.navigate('Login');
     }
 
-    const handleClick = () => {
-        setModal(!isModal);
-        navigateToLogin();
+    const handleClick = async () => {
+        await setModal(!isModal);
     }
 
     const SelectImage = async () =>{
@@ -49,19 +57,10 @@ export default function userStepOne({ navigation }) {
           };
 
         ImagePicker.launchImageLibrary(options, response => {
-            
-            if(response.didCancel){
-                console.log("Usuário fechou o selecionador de imagem");
-            }else if (response.error){
-              console.log(response.error);
-            }else if (response.customButton) {
-              console.log('Selected: ', response.customButton)
-            } else {
-              const source = {uri: response.uri };
-          
-              setImage(source)
-            }
-          });
+            const source = {uri: response.uri };
+        
+            setImage(source)
+        });
     }
 
     function navigateToLogin() {
@@ -83,7 +82,7 @@ export default function userStepOne({ navigation }) {
                             />
                             <View style={createUser.ButtonImage}>
                                 <Button 
-                                    title="Remover " 
+                                    title="Remover" 
                                     onPress={() => {setImage(null)}} 
                                 />
                             </View>
@@ -100,11 +99,11 @@ export default function userStepOne({ navigation }) {
                     </TouchableOpacity>
                     <View style={createUser.modalFooter}>
                         <TouchableOpacity style={createUser.buttonCancel} >
-                            <Text onPress={handleClick} style={createUser.modalButtonText}>Cancelar</Text>
+                            <Text onPress={handleClick ? navigateToLogin : ''} style={createUser.modalButtonText}>Cancelar</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity style={createUser.buttonNext} >
-                            <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
+                            <Text onPress={nextStep} style={createUser.modalButtonText}>Pŕoximo</Text>
                         </TouchableOpacity> 
                     </View>
 
@@ -129,11 +128,11 @@ export default function userStepOne({ navigation }) {
                     
                     <View style={createUser.modalFooter}>
                         <TouchableOpacity style={createUser.buttonCancel} >
-                            <Text onPress={() => setStep(isStep - 1)} style={createUser.modalButtonText}>Voltar</Text>
+                            <Text onPress={backStep} style={createUser.modalButtonText}>Voltar</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity style={createUser.buttonNext} >
-                            <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
+                            <Text onPress={nextStep} style={createUser.modalButtonText}>Pŕoximo</Text>
                         </TouchableOpacity>
                     </View>
 
