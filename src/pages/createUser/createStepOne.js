@@ -5,9 +5,7 @@ import {
     View, 
     Text,
     TouchableOpacity,
-    Image,
-    PushNotificationIOS,
-    Button
+    Image
 } from 'react-native';
 
 import createUser from '../../styles/createUser';
@@ -19,9 +17,19 @@ import ImagePicker from "react-native-image-picker";
 
 export default function userStepOne({ navigation }) {
     const [image, setImage] = useState(null);
+    const [isModal, setModal] = useState(true);
+    const [isStep, setStep] = useState(0);
+
+    console.log(isStep);
+    
 
     function navigateToLogin() {
         navigation.navigate('Login');
+    }
+
+    const handleClick = () => {
+        setModal(!isModal);
+        navigateToLogin();
     }
 
     const SelectImage = async () =>{
@@ -35,7 +43,6 @@ export default function userStepOne({ navigation }) {
           };
 
         ImagePicker.launchImageLibrary(options, response => {
-            console.log('Response = ', response);
             
             if(response.didCancel){
                 console.log("Usuário fechou o selecionador de imagem");
@@ -51,16 +58,57 @@ export default function userStepOne({ navigation }) {
           });
     }
 
-
-    const [isModal, setModal] = useState(true);
-
-    const handleClick = () => {
-        setModal(!isModal);
-        navigateToLogin();
-    }
-
     function navigateToLogin() {
         navigation.navigate('Login');
+    }
+
+    function modalStepOne() {
+        return (
+            <View>
+                <View style={createUser.modalContent}>
+                    <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
+                    <TouchableOpacity onPress={SelectImage} style={createUser.cameraOpen} >
+                        {image ? 
+                        <Image 
+                            source={image}
+                            style={{width: 300, height: 300}}
+                        />
+                    
+                        : 
+                        <Image 
+                            source={ camera } 
+                            style={createUser.cameraImage}
+                        />
+                        }
+                    </TouchableOpacity>
+                    <View style={createUser.modalFooter}>
+                        <TouchableOpacity style={createUser.buttonCancel} >
+                            <Text onPress={handleClick} style={createUser.modalButtonText}>Cancelar</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={createUser.buttonNext} >
+                            <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
+                        </TouchableOpacity> 
+                    </View>
+                </View>
+            </View>
+        );
+    }
+
+    function modalStepTwo() {
+        return (
+            <View>
+                <View style={createUser.modalFooter}>
+                    <TouchableOpacity style={createUser.buttonCancel} >
+                        <Text onPress={() => setStep(isStep - 1)} style={createUser.modalButtonText}>Voltar</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={createUser.buttonNext} >
+                        <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
+                    </TouchableOpacity> 
+                </View>
+            </View>
+        );
     }
 
     
@@ -74,76 +122,12 @@ export default function userStepOne({ navigation }) {
             <Modal 
                 isVisible={isModal}
                 style={createUser.modalStyle}
-            >
-                <ProgressSteps
-                    completedProgressBarColor={'#FD3539'}
-                    activeStepIconBorderColor={'#FD3539'}
-                    completedStepIconColor={'#FD3539'}
-                    labelColor={'#FD3539'}
-                    activeLabelColor={'#FD3539'}
-                >
-                    <ProgressStep 
-                        label="Câmera"
-                        // removeBtnRow={true}
-                        nextBtnText={"Próximo"}
-                        nextBtnStyle={createUser.buttonNext}
-                        nextBtnTextStyle={createUser.modalButtonText}
-                        previousBtnText={"Cancelar"}
-                        previousBtnStyle={createUser.buttonCancel}
-                        previousBtnTextStyle={createUser.modalButtonText}
-                    >
-                        <View>
-                            <View style={createUser.modalContent}>
-                                <TouchableOpacity style={createUser.cameraOpen} >
-                                <TouchableOpacity onPress={SelectImage} style={createUser.cameraOpen} >
-                                    {image ? 
-                                    <Image 
-                                        source={image}
-                                        style={{width: 300, height: 300}}
-                                    />
-                                
-                                    : 
-                                    <Image 
-                                        source={ camera } 
-                                        style={createUser.cameraImage}
-                                    />
-                                    }
-                                </TouchableOpacity>
-                                </TouchableOpacity>
-                                <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
-
-                                <View style={createUser.modalFooter}>
-                                    <TouchableOpacity style={createUser.buttonCancel} >
-                                        <Text onPress={handleClick} style={createUser.modalButtonText}>Cancelar</Text>
-                                    </TouchableOpacity>
-
-                                    <TouchableOpacity style={createUser.buttonNext} >
-                                        <Text  style={createUser.modalButtonText}>Pŕoximo</Text>
-                                    </TouchableOpacity> 
-                                </View>
-                            </View>
-                        </View>
-                    </ProgressStep>
-
-                    <ProgressStep 
-                        label="Cadastro"
-                        nextBtnText={"Próximo"}
-                        nextBtnStyle={createUser.buttonNext}
-                        nextBtnTextStyle={createUser.modalButtonText}
-                        previousBtnText={"Voltar"}
-                        previousBtnStyle={createUser.buttonCancel}
-                        previousBtnTextStyle={createUser.modalButtonText}
-                    >
-                        <View>
-                        </View>
-                    </ProgressStep>
-
-                    <ProgressStep label="Cadastro">
-                        <View>
-                        </View>
-                    </ProgressStep>
-                </ProgressSteps>
-                
+            > 
+                {   isStep === 0 
+                    ? modalStepOne()
+                    : modalStepTwo()
+                }
+                    
             </Modal>
             
         </View>
