@@ -27,8 +27,6 @@ export default function userStepOne({ navigation }) {
         await setStep(isStep + 1);
     }
     const backStep = async () => {
-        console.log('clicado');
-        
         await setStep(isStep - 1);
     }
     
