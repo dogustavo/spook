@@ -69,7 +69,7 @@ const createUser = StyleSheet.create({
         alignItems: 'center',
         width: 330,
         justifyContent: 'space-around',
-        marginBottom: 60
+        marginBottom: 100
     },
     buttonCancel: {
         width: 110,
@@ -109,9 +109,7 @@ const createUser = StyleSheet.create({
         zIndex: 1,
     },
     Imagem: {
-        top: -60,
-        // marginTop: 50,
-        // marginBottom: 60
+        top: -30,
     }
 });
 
