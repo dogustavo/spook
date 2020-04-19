@@ -37,7 +37,7 @@ export default function userStepOne({ navigation }) {
                 style={createUser.modalStyle}
             >
                 <ProgressSteps
-                    progressBarColor={'#FD3539'}
+                    completedProgressBarColor={'#FD3539'}
                     activeStepIconBorderColor={'#FD3539'}
                     completedStepIconColor={'#FD3539'}
                     labelColor={'#FD3539'}
@@ -45,7 +45,13 @@ export default function userStepOne({ navigation }) {
                 >
                     <ProgressStep 
                         label="Câmera"
-                        removeBtnRow={true}
+                        // removeBtnRow={true}
+                        nextBtnText={"Próximo"}
+                        nextBtnStyle={createUser.buttonNext}
+                        nextBtnTextStyle={createUser.modalButtonText}
+                        previousBtnText={"Cancelar"}
+                        previousBtnStyle={createUser.buttonCancel}
+                        previousBtnTextStyle={createUser.modalButtonText}
                     >
                         <View>
                             <View style={createUser.modalContent}>
@@ -58,15 +64,24 @@ export default function userStepOne({ navigation }) {
                                     <TouchableOpacity style={createUser.buttonCancel} >
                                         <Text onPress={handleClick} style={createUser.modalButtonText}>Cancelar</Text>
                                     </TouchableOpacity>
+
                                     <TouchableOpacity style={createUser.buttonNext} >
-                                        <Text style={createUser.modalButtonText}>Próximo</Text>
-                                    </TouchableOpacity>
+                                        <Text  style={createUser.modalButtonText}>Pŕoximo</Text>
+                                    </TouchableOpacity> 
                                 </View>
                             </View>
                         </View>
                     </ProgressStep>
 
-                    <ProgressStep label="Cadastro">
+                    <ProgressStep 
+                        label="Cadastro"
+                        nextBtnText={"Próximo"}
+                        nextBtnStyle={createUser.buttonNext}
+                        nextBtnTextStyle={createUser.modalButtonText}
+                        previousBtnText={"Voltar"}
+                        previousBtnStyle={createUser.buttonCancel}
+                        previousBtnTextStyle={createUser.modalButtonText}
+                    >
                         <View>
                         </View>
                     </ProgressStep>

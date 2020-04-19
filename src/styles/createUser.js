@@ -79,7 +79,7 @@ const createUser = StyleSheet.create({
         elevation: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 80    
+        marginRight: 10    
     },
     buttonNext: {
         width: 110,
@@ -89,7 +89,7 @@ const createUser = StyleSheet.create({
         elevation: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 80  
+        marginLeft: 10  
     },
     modalButtonText: {
         color: '#FFF',
