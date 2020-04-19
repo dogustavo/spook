@@ -23,7 +23,6 @@ export default function userStepOne({ navigation }) {
     const [image, setImage] = useState(null);
     const [isModal, setModal] = useState(true);
     const [isStep, setStep] = useState(0);
-
   
     const nextStep = async () => {
         await setStep(isStep + 1);
@@ -106,15 +105,6 @@ export default function userStepOne({ navigation }) {
                             <Text onPress={nextStep} style={createUser.modalButtonText}>Pŕoximo</Text>
                         </TouchableOpacity> 
                     </View>
-
-                    <View style={stepElement.wrapStep}>
-                        <View style={stepElement.circleOneDone}/>
-                        <View style={stepElement.rectangleOne}/>
-                        <View style={stepElement.circleThree}/>
-                        <View style={stepElement.rectangleTwo}/>
-                        <View style={stepElement.circleTwo}/>
-                    </View>
-                    
                 </View>
             </View>
         );
@@ -135,21 +125,46 @@ export default function userStepOne({ navigation }) {
                             <Text onPress={nextStep} style={createUser.modalButtonText}>Pŕoximo</Text>
                         </TouchableOpacity>
                     </View>
+  
+                </View>
+            </View>
+        );
+    }
 
-                    <View style={stepElement.wrapStep}>
-                        <View style={stepElement.circleOneDone}/>
-                        <View style={stepElement.rectangleOneDone}/>
-                        <View style={stepElement.circleThreeDone}/>
-                        <View style={stepElement.rectangleTwo}/>
-                        <View style={stepElement.circleTwo}/>
+    function modalStepThree() {
+        return (
+            <View>
+                <View style={createUser.modalContent}>
+                    <Text style={createUser.modalTitle}>Test</Text>
+                    
+                    <View style={createUser.modalFooter}>
+                        <TouchableOpacity style={createUser.buttonCancel} >
+                            <Text onPress={backStep} style={createUser.modalButtonText}>Voltar</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={createUser.buttonNext} >
+                            <Text onPress={nextStep} style={createUser.modalButtonText}>Salvar</Text>
+                        </TouchableOpacity>
                     </View>
+
+                    
                     
                 </View>
             </View>
         );
     }
 
-    
+    function progressBar() {
+        return (
+            <View style={stepElement.wrapStep}>
+                <View style={ stepElement.circleOneDone }/>
+                <View style={ isStep === 0 ? stepElement.rectangleOne : stepElement.rectangleOneDone }/>
+                <View style={ isStep >= 1 ? stepElement.circleThreeDone : stepElement.circleThree }/>
+                <View style={ isStep === 2 ? stepElement.rectangleTwoDone : stepElement.rectangleTwo }/>
+                <View style={ isStep === 2 ? stepElement.circleTwoDone : stepElement.circleTwo }/>
+            </View>
+        );
+    }
 
     return (
         <View style={createUser.wrapContent}>
@@ -163,8 +178,12 @@ export default function userStepOne({ navigation }) {
             > 
                 {   isStep === 0 
                     ? modalStepOne()
-                    : modalStepTwo()
+                    : isStep === 1
+                    ? modalStepTwo()
+                    : modalStepThree()
                 }
+
+                { progressBar() }
  
             </Modal>
             
