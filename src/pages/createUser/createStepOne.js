@@ -12,7 +12,6 @@ import {
 
 import createUser from '../../styles/createUser';
 import camera from '../../assets/images/take-picture.png';
-<<<<<<< HEAD
 import storageUser from "../store";
 import ImagePicker from "react-native-image-picker";
 
@@ -53,11 +52,6 @@ export default function userStepOne({ navigation }) {
     }
 
 
-=======
-
-
-export default function userStepOne({ navigation }) {
->>>>>>> dcb470fee5181a32d253d946fe189d24222c0665
     const [isModal, setModal] = useState(true);
 
     const handleClick = () => {
