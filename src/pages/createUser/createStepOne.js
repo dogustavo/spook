@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-native-modal';
-import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
+import ImagePicker from 'react-native-image-picker';
+
 import { 
     View, 
     Text,
@@ -13,6 +14,8 @@ import camera from '../../assets/images/take-picture.png';
 // import storageUser from "../store";
 import ImagePicker from "react-native-image-picker";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import stepElement from '../../styles/stepElement';
+
 
 
 
@@ -103,6 +106,14 @@ export default function userStepOne({ navigation }) {
                             <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
                         </TouchableOpacity> 
                     </View>
+
+                    <View style={stepElement.wrapStep}>
+                        <View style={stepElement.circleOne}/>
+                        <View style={stepElement.rectangleOne}/>
+                        <View style={stepElement.circleThree}/>
+                        <View style={stepElement.circleTwo}/>
+                    </View>
+                    
                 </View>
             </View>
         );
@@ -118,7 +129,7 @@ export default function userStepOne({ navigation }) {
 
                     <TouchableOpacity style={createUser.buttonNext} >
                         <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
-                    </TouchableOpacity> 
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -140,7 +151,7 @@ export default function userStepOne({ navigation }) {
                     ? modalStepOne()
                     : modalStepTwo()
                 }
-                    
+ 
             </Modal>
             
         </View>
