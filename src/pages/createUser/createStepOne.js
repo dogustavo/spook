@@ -11,6 +11,9 @@ import {
 
 import createUser from '../../styles/createUser';
 import camera from '../../assets/images/take-picture.png';
+// import storageUser from "../store";
+import ImagePicker from "react-native-image-picker";
+import Icon from 'react-native-vector-icons/FontAwesome';
 import stepElement from '../../styles/stepElement';
 
 
@@ -20,6 +23,11 @@ export default function userStepOne({ navigation }) {
     const [image, setImage] = useState(null);
     const [isModal, setModal] = useState(true);
     const [isStep, setStep] = useState(0);
+
+    
+    function clearImage() {
+        setImage(null)
+    }
 
     function navigateToLogin() {
         navigation.navigate('Login');
@@ -67,15 +75,26 @@ export default function userStepOne({ navigation }) {
                     <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
                     <TouchableOpacity onPress={SelectImage} style={createUser.cameraOpen} >
                         {image ? 
+                        (<>
+                        <View style={createUser.Imagem}>
+                        <View style={createUser.iconImage}>
+                            <TouchableOpacity onPress={clearImage}>
+                                <Icon name="close" size={18} color="black"  />
+                            </TouchableOpacity>
+                         </View>
                         <Image 
                             source={image}
                             style={{width: 300, height: 300}}
                         />
+                        </View>
+                        </>)
                         : 
-                        <Image 
-                            source={ camera } 
-                            style={createUser.cameraImage}
-                        />
+                        <View style={createUser.Imagem}>
+                            <Image 
+                                source={ camera } 
+                                style={createUser.cameraImage}
+                            />
+                        </View>
                         }
                     </TouchableOpacity>
                     <View style={createUser.modalFooter}>
