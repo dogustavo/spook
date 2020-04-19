@@ -11,8 +11,6 @@ import {
 
 import createUser from '../../styles/createUser';
 import camera from '../../assets/images/take-picture.png';
-// import storageUser from "../store";
-import ImagePicker from "react-native-image-picker";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import stepElement from '../../styles/stepElement';
 
@@ -123,14 +121,27 @@ export default function userStepOne({ navigation }) {
     function modalStepTwo() {
         return (
             <View>
-                <View style={createUser.modalFooter}>
-                    <TouchableOpacity style={createUser.buttonCancel} >
-                        <Text onPress={() => setStep(isStep - 1)} style={createUser.modalButtonText}>Voltar</Text>
-                    </TouchableOpacity>
+                <View style={createUser.modalContent}>
+                    <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
+                    
+                    <View style={createUser.modalFooter}>
+                        <TouchableOpacity style={createUser.buttonCancel} >
+                            <Text onPress={() => setStep(isStep - 1)} style={createUser.modalButtonText}>Voltar</Text>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity style={createUser.buttonNext} >
-                        <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity style={createUser.buttonNext} >
+                            <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={stepElement.wrapStep}>
+                        <View style={stepElement.circleOneDone}/>
+                        <View style={stepElement.rectangleOneDone}/>
+                        <View style={stepElement.circleThreeDone}/>
+                        <View style={stepElement.rectangleTwo}/>
+                        <View style={stepElement.circleTwo}/>
+                    </View>
+                    
                 </View>
             </View>
         );
