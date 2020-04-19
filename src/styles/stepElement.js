@@ -4,16 +4,6 @@ const stepElement = StyleSheet.create({
     wrapStep: {
         position: 'relative'
     },
-    circleOne: {
-        position: 'absolute',
-        width: 35,
-        height: 35,
-        borderRadius: 35/2,
-        backgroundColor: '#BFBCBC',
-        marginBottom: 20,
-        bottom: 10,
-        right: 100
-    },
     circleOneDone: {
         position: 'absolute',
         width: 35,
@@ -22,7 +12,8 @@ const stepElement = StyleSheet.create({
         backgroundColor: '#FD3539',
         marginBottom: 20,
         bottom: 10,
-        right: 100
+        right: 100,
+        zIndex: 1
     },
     circleTwo: {
         position: 'absolute',

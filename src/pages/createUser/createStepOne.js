@@ -109,7 +109,7 @@ export default function userStepOne({ navigation }) {
                     </View>
 
                     <View style={stepElement.wrapStep}>
-                        <View style={stepElement.circleOne}/>
+                        <View style={stepElement.circleOneDone}/>
                         <View style={stepElement.rectangleOne}/>
                         <View style={stepElement.circleThree}/>
                         <View style={stepElement.rectangleTwo}/>
