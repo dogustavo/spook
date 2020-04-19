@@ -5,14 +5,14 @@ import { createStackNavigator } from '@react-navigation/stack'
 const AppStack = createStackNavigator();
 
 import login from './pages/login/login';
-import createUserStepOne from './pages/createUser/createStepOne';
+import createUser from './pages/createUser/createUser';
 
 export default function Routes() {
     return(
         <NavigationContainer>
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
                 <AppStack.Screen name="Login" component={login}/>
-                <AppStack.Screen name="Create" component={createUserStepOne}/>
+                <AppStack.Screen name="Create" component={createUser}/>
             </AppStack.Navigator>
         </NavigationContainer>
     )

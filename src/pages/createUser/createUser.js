@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-native-modal';
 import ImagePicker from 'react-native-image-picker';
-import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
 
 import { 
     View, 
@@ -146,9 +145,6 @@ export default function userStepOne({ navigation }) {
                             <Text onPress={nextStep} style={createUser.modalButtonText}>Salvar</Text>
                         </TouchableOpacity>
                     </View>
-
-                    
-                    
                 </View>
             </View>
         );

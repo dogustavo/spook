@@ -4076,7 +4076,7 @@ lodash.unescape@4.0.1:
   resolved "https://registry.yarnpkg.com/lodash.unescape/-/lodash.unescape-4.0.1.tgz#bf2249886ce514cda112fae9218cdc065211fc9c"
   integrity sha1-vyJJiGzlFM2hEvrpIYzcBlIR/Jw=
 
-lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.3.0:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -5126,14 +5126,6 @@ react-native-modal@^11.5.6:
   dependencies:
     prop-types "^15.6.2"
     react-native-animatable "1.3.3"
-
-react-native-progress-steps@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-progress-steps/-/react-native-progress-steps-1.3.0.tgz#6c1023297f543b86a4a8eea3ab304e085f471d8f"
-  integrity sha512-Q6I+saUaaFEfPQ2W0Zq+V0EksaLxCp2PCxh77rI4tqATbp5qNH2KrzXgrSf3plgJhxlkincorUNhuBQ1jDeoWQ==
-  dependencies:
-    lodash "^4.17.11"
-    prop-types "^15.6.2"
 
 react-native-reanimated@^1.8.0:
   version "1.8.0"
