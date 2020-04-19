@@ -100,11 +100,11 @@ const createUser = StyleSheet.create({
     cameraOpen: {
         marginTop: 50
     },
-    iconImage: {
+    ButtonImage: {
         position: 'absolute',
-        left: 280,
+        left: 0,
         right: 0,
-        top: 0,
+        
         bottom: 0,
         zIndex: 1,
     },

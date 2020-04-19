@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-native-modal';
 import ImagePicker from 'react-native-image-picker';
 
@@ -6,7 +6,8 @@ import {
     View, 
     Text,
     TouchableOpacity,
-    Image
+    Image,
+    Button
 } from 'react-native';
 
 import createUser from '../../styles/createUser';
@@ -22,10 +23,11 @@ export default function userStepOne({ navigation }) {
     const [isModal, setModal] = useState(true);
     const [isStep, setStep] = useState(0);
 
+    useEffect(()=>{console.log(image)},[image])
     
-    function clearImage() {
-        setImage(null)
-    }
+    // function clearImage() {
+    //     setImage(null)
+    // }
 
     function navigateToLogin() {
         navigation.navigate('Login');
@@ -72,18 +74,19 @@ export default function userStepOne({ navigation }) {
                 <View style={createUser.modalContent}>
                     <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
                     <TouchableOpacity onPress={SelectImage} style={createUser.cameraOpen} >
-                        {image ? 
+                        {image != null ? 
                         (<>
                         <View style={createUser.Imagem}>
-                        <View style={createUser.iconImage}>
-                            <TouchableOpacity onPress={clearImage}>
-                                <Icon name="close" size={18} color="black"  />
-                            </TouchableOpacity>
-                         </View>
-                        <Image 
-                            source={image}
-                            style={{width: 300, height: 300}}
-                        />
+                            <Image 
+                                source={image}
+                                style={{width: 300, height: 300}}
+                            />
+                            <View style={createUser.ButtonImage}>
+                                <Button 
+                                    title="Remover " 
+                                    onPress={() => {setImage(null)}} 
+                                />
+                            </View>
                         </View>
                         </>)
                         : 
