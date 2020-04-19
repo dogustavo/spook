@@ -54,6 +54,17 @@ const stepElement = StyleSheet.create({
         bottom: 10,
         left: -20
     },
+    circleThreeDone: {
+        position: 'absolute',
+        width: 35,
+        height: 35,
+        borderRadius: 35/2,
+        backgroundColor: '#FD3539',
+        marginBottom: 20,
+        bottom: 10,
+        left: -20,
+        zIndex: 1
+    },
     rectangleOne: {
         position: 'absolute',
         width: 130,
