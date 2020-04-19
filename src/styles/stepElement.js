@@ -56,11 +56,36 @@ const stepElement = StyleSheet.create({
     },
     rectangleOne: {
         position: 'absolute',
-        width: 100,
-        height: 10,
-        bottom: 10,
+        width: 130,
+        height: 7,
+        bottom: 45,
+        right: 5,
         backgroundColor: '#BFBCBC',
-    }
+    },
+    rectangleOneDone: {
+        position: 'absolute',
+        width: 130,
+        height: 7,
+        bottom: 45,
+        right: 5,
+        backgroundColor: '#FD3539',
+    },
+    rectangleTwo: {
+        position: 'absolute',
+        width: 130,
+        height: 7,
+        bottom: 45,
+        left: 5,
+        backgroundColor: '#BFBCBC',
+    },
+    rectangleTwoDone: {
+        position: 'absolute',
+        width: 130,
+        height: 7,
+        bottom: 45,
+        left: 5,
+        backgroundColor: '#FD3539',
+    },
 });
 
 export default stepElement;
