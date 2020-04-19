@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-native-modal';
-import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
+import ImagePicker from 'react-native-image-picker';
+
 import { 
     View, 
     Text,
@@ -10,8 +11,8 @@ import {
 
 import createUser from '../../styles/createUser';
 import camera from '../../assets/images/take-picture.png';
-import storageUser from "../store";
-import ImagePicker from "react-native-image-picker";
+import stepElement from '../../styles/stepElement';
+
 
 
 
@@ -19,9 +20,6 @@ export default function userStepOne({ navigation }) {
     const [image, setImage] = useState(null);
     const [isModal, setModal] = useState(true);
     const [isStep, setStep] = useState(0);
-
-    console.log(isStep);
-    
 
     function navigateToLogin() {
         navigation.navigate('Login');
@@ -73,7 +71,6 @@ export default function userStepOne({ navigation }) {
                             source={image}
                             style={{width: 300, height: 300}}
                         />
-                    
                         : 
                         <Image 
                             source={ camera } 
@@ -90,6 +87,14 @@ export default function userStepOne({ navigation }) {
                             <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
                         </TouchableOpacity> 
                     </View>
+
+                    <View style={stepElement.wrapStep}>
+                        <View style={stepElement.circleOne}/>
+                        <View style={stepElement.rectangleOne}/>
+                        <View style={stepElement.circleThree}/>
+                        <View style={stepElement.circleTwo}/>
+                    </View>
+                    
                 </View>
             </View>
         );
@@ -105,7 +110,7 @@ export default function userStepOne({ navigation }) {
 
                     <TouchableOpacity style={createUser.buttonNext} >
                         <Text onPress={() => setStep(isStep + 1)} style={createUser.modalButtonText}>Pŕoximo</Text>
-                    </TouchableOpacity> 
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -127,7 +132,7 @@ export default function userStepOne({ navigation }) {
                     ? modalStepOne()
                     : modalStepTwo()
                 }
-                    
+ 
             </Modal>
             
         </View>

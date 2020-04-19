@@ -69,7 +69,7 @@ const createUser = StyleSheet.create({
         alignItems: 'center',
         width: 330,
         justifyContent: 'space-around',
-        marginBottom: 20
+        marginBottom: 60
     },
     buttonCancel: {
         width: 110,
@@ -98,7 +98,8 @@ const createUser = StyleSheet.create({
         textTransform: 'uppercase'
     },
     cameraOpen: {
-        marginTop: 50
+        marginTop: 50,
+        marginBottom: 60
     }
 });
 
