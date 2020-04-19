@@ -5,9 +5,10 @@ import ImagePicker from 'react-native-image-picker';
 import { 
     View, 
     Text,
+    TextInput,
     TouchableOpacity,
     Image,
-    Button
+    Button,
 } from 'react-native';
 
 import createUser from '../../styles/createUser';
@@ -15,14 +16,11 @@ import camera from '../../assets/images/take-picture.png';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import stepElement from '../../styles/stepElement';
 
-
-
-
 export default function userStepOne({ navigation }) {
     const [image, setImage] = useState(null);
     const [isModal, setModal] = useState(true);
     const [isStep, setStep] = useState(0);
-  
+
     const nextStep = async () => {
         await setStep(isStep + 1);
     }
@@ -111,10 +109,37 @@ export default function userStepOne({ navigation }) {
         return (
             <View>
                 <View style={createUser.modalContent}>
-                    <Text style={createUser.modalTitle}>Escolha uma bela foto de peril</Text>
-                    
+                    <Text style={createUser.modalTitle}>Adicione seus dados pessoais</Text>
+                    <View styler={createUser.WrapForm}>
+                        <Text style={createUser.inputTitle}>Nome *</Text>
+                        <TextInput 
+                            autoCapitalize='none'
+                            autoCorrect={false}
+                            style={createUser.input}
+                            placeholderTextColor='#A39899'
+                        />  
+                    </View>
+                    <View styler={createUser.WrapForm}>
+                        <Text style={createUser.inputTitle}>E-mail *</Text>
+                        <TextInput 
+                            autoCapitalize='none'
+                            autoCorrect={false}
+                            style={createUser.input}
+                            placeholderTextColor='#A39899'
+                        />  
+                    </View>
+                    <View styler={createUser.WrapForm}>
+                        <Text style={createUser.inputTitle}>Data de nascimento *</Text>
+                            <TextInput
+                                keyboardType='numeric'
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                                style={createUser.input}
+                                placeholderTextColor='#A39899'
+                            /> 
+                    </View>
                     <View style={createUser.modalFooter}>
-                        <TouchableOpacity style={createUser.buttonCancel} >
+                        <TouchableOpacity style={createUser.buttonBack} >
                             <Text onPress={backStep} style={createUser.modalButtonText}>Voltar</Text>
                         </TouchableOpacity>
 
@@ -135,7 +160,7 @@ export default function userStepOne({ navigation }) {
                     <Text style={createUser.modalTitle}>Test</Text>
                     
                     <View style={createUser.modalFooter}>
-                        <TouchableOpacity style={createUser.buttonCancel} >
+                        <TouchableOpacity style={createUser.buttonBack} >
                             <Text onPress={backStep} style={createUser.modalButtonText}>Voltar</Text>
                         </TouchableOpacity>
 

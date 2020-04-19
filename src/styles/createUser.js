@@ -91,6 +91,16 @@ const createUser = StyleSheet.create({
         alignItems: 'center',
         marginLeft: 10  
     },
+    buttonBack: {
+        width: 110,
+        height: 45,
+        backgroundColor: '#A39899',
+        borderRadius: 7,
+        elevation: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 10 
+    },
     modalButtonText: {
         color: '#FFF',
         fontSize: 16,
@@ -110,6 +120,24 @@ const createUser = StyleSheet.create({
     },
     Imagem: {
         top: -30,
+    },
+    input: {
+        alignSelf: 'center',
+        height: 46,
+        width: 310,
+        borderWidth: 1,
+        borderColor: '#A39899',
+        borderRadius: 7,
+        paddingHorizontal: 20,
+        borderStyle: 'solid',
+        color: '#040F0F',
+        marginTop: 10
+    },
+    inputTitle: {
+        textTransform: 'uppercase',
+        fontSize: 16,
+        fontWeight: 'bold',
+        paddingHorizontal: 20
     }
 });
 
