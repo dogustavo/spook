@@ -4,7 +4,7 @@ const config = {
             version: '1.00',
         },
         apiGateway: {
-            URL: '',
+            URL: 'http://localhost:3001',
             version: 'v1',
         },
     },
@@ -13,7 +13,7 @@ const config = {
             version: '1.00',
         },
         apiGateway: {
-            URL: '',
+            URL: 'https://spook-api.herokuapp.com/',
             version: 'v1',
         },
     }
