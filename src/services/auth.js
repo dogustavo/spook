@@ -11,22 +11,31 @@ export const requestSigin = async (credentials) => {
     
     try {
         
-        const response = await Http.post('/auth', credentials);
+        const res = await Http.post('/user/auth', credentials);
 
-        if(response.data.success) {
-            
-            const { token } = response.data.data;
-
-            return token;
+        if(res.data.success) {
+            return res.data.data;;
         }
 
-        throw response;
+        throw res;
 
     } catch (error) {
-        throw error;
+        const errorMessage = error.data ? error.data.message : error;
+        throw errorMessage;
     }
 }
 
-export const setAuthCookie = token => {
-    setCookie('token', token);
+export const requestSigup = async (form) => {
+    try {
+        const res = await Http.post('/user/create', form);
+
+        if(res.data.success) {
+            return res.data.success;
+        }
+
+        throw res;
+    } catch (error) {
+        const errorMessage = error.data ? error.data.message : error;
+        throw errorMessage;
+    }
 }

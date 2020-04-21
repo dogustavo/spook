@@ -2,10 +2,10 @@ import { put, call } from 'redux-saga/effects';
 
 import { setHeaderToken } from '../utils/http';
 
-import { authLogin, authLogout } from '../ducks/auth';
+import { authSigin, authSigup } from '../ducks/auth';
 
 
-export function* logout() {
+export function* sigin({ payload }) {
     try {
         yield put(authLogout());
     } catch (error) {
@@ -24,7 +24,6 @@ export function* authCheck() {
             // 	return;
             // }
         
-        yield put(authLogout());
     } catch (error) {
         // Crira erro de autenticação
     }

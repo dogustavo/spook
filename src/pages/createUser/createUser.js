@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import Modal from 'react-native-modal';
 import ImagePicker from 'react-native-image-picker';
 
@@ -12,10 +12,31 @@ import {
 
 } from 'react-native';
 
+import { connect } from 'react-redux';
+
 import createUser from '../../styles/createUser';
 import camera from '../../assets/images/take-picture.png';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import stepElement from '../../styles/stepElement';
+
+import { authSigup } from '../../ducks/auth'; 
+
+class createUser extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            errors: {},
+            fields: {
+                avatar: '',
+                name: '',
+                age: '',
+                email: '',
+                password: ''
+            }
+        };
+    }
+}
 
 export default function userStepOne({ navigation }) {
     const [image, setImage] = useState(null);
