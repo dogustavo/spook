@@ -1,7 +1,7 @@
 import React, { useState, Component } from 'react';
 import Modal from 'react-native-modal';
 import ImagePicker from 'react-native-image-picker';
-
+import { useNavigation } from '@react-navigation/native';
 import { 
     View, 
     Text,
@@ -12,54 +12,30 @@ import {
 
 } from 'react-native';
 
-import { connect } from 'react-redux';
-
 import createUser from '../../styles/createUser';
 import camera from '../../assets/images/take-picture.png';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import stepElement from '../../styles/stepElement';
 
-import { authSigup } from '../../ducks/auth'; 
 
-class createUser extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            errors: {},
-            fields: {
-                avatar: '',
-                name: '',
-                age: '',
-                email: '',
-                password: ''
-            }
-        };
-    }
-}
 
-export default function userStepOne({ navigation }) {
+const userStepOne = ({ }) => {
+
+    const navigation = useNavigation();
+
     const [image, setImage] = useState(null);
     const [isModal, setModal] = useState(true);
     const [isStep, setStep] = useState(0);
 
-    const nextStep = async () => {
-        await setStep(isStep + 1);
+    const nextStep = () => {
+        setStep(isStep + 1);
     }
-    const backStep = async () => {
-        await setStep(isStep - 1);
+    const backStep = () => {
+        setStep(isStep - 1);
     }
     
-    // function clearImage() {
-    //     setImage(null)
-    // }
-
-    function navigateToLogin() {
-        navigation.navigate('Login');
-    }
-
-    const handleClick = async () => {
-        await setModal(!isModal);
+    const handleClick = () => {
+        setModal(!isModal);
     }
 
     const SelectImage = async () =>{
@@ -77,10 +53,6 @@ export default function userStepOne({ navigation }) {
         
             setImage(source)
         });
-    }
-
-    function navigateToLogin() {
-        navigation.navigate('Login');
     }
 
     function modalStepOne() {
@@ -114,12 +86,12 @@ export default function userStepOne({ navigation }) {
                         }
                     </TouchableOpacity>
                     <View style={createUser.modalFooter}>
-                        <TouchableOpacity style={createUser.buttonCancel} >
-                            <Text onPress={handleClick ? navigateToLogin : ''} style={createUser.modalButtonText}>Cancelar</Text>
+                        <TouchableOpacity onPress={ () => {navigation.goBack();  handleClick} } style={createUser.buttonCancel} >
+                            <Text style={createUser.modalButtonText}>Cancelar</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={createUser.buttonNext} >
-                            <Text onPress={nextStep} style={createUser.modalButtonText}>Pŕoximo</Text>
+                        <TouchableOpacity onPress={nextStep} style={createUser.buttonNext} >
+                            <Text style={createUser.modalButtonText}>Pŕoximo</Text>
                         </TouchableOpacity> 
                     </View>
                 </View>
@@ -161,12 +133,12 @@ export default function userStepOne({ navigation }) {
                             /> 
                     </View>
                     <View style={createUser.modalFooter}>
-                        <TouchableOpacity style={createUser.buttonBack} >
-                            <Text onPress={backStep} style={createUser.modalButtonText}>Voltar</Text>
+                        <TouchableOpacity onPress={backStep} style={createUser.buttonBack} >
+                            <Text style={createUser.modalButtonText}>Voltar</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={createUser.buttonNext} >
-                            <Text onPress={nextStep} style={createUser.modalButtonText}>Pŕoximo</Text>
+                        <TouchableOpacity onPress={nextStep} style={createUser.buttonNext} >
+                            <Text style={createUser.modalButtonText}>Pŕoximo</Text>
                         </TouchableOpacity>
                     </View>
   
@@ -182,12 +154,12 @@ export default function userStepOne({ navigation }) {
                     <Text style={createUser.modalTitle}>Test</Text>
                     
                     <View style={createUser.modalFooter}>
-                        <TouchableOpacity style={createUser.buttonBack} >
-                            <Text onPress={backStep} style={createUser.modalButtonText}>Voltar</Text>
+                        <TouchableOpacity onPress={backStep} style={createUser.buttonBack} >
+                            <Text style={createUser.modalButtonText}>Voltar</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={createUser.buttonNext} >
-                            <Text onPress={nextStep} style={createUser.modalButtonText}>Salvar</Text>
+                        <TouchableOpacity onPress={nextStep} style={createUser.buttonNext} >
+                            <Text style={createUser.modalButtonText}>Salvar</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -230,4 +202,6 @@ export default function userStepOne({ navigation }) {
             
         </View>
     );
+
 }
+export default userStepOne;
