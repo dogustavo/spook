@@ -8,16 +8,13 @@ import {
     TextInput,
     TouchableOpacity,
     Image,
-    Button,
-
+    Button
 } from 'react-native';
 
 import createUser from '../../styles/createUser';
 import camera from '../../assets/images/take-picture.png';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import stepElement from '../../styles/stepElement';
-
-
 
 const userStepOne = ({ }) => {
 
@@ -189,7 +186,8 @@ const userStepOne = ({ }) => {
                 isVisible={isModal}
                 style={createUser.modalStyle}
             > 
-                {   isStep === 0 
+                {   
+                    isStep === 0 
                     ? modalStepOne()
                     : isStep === 1
                     ? modalStepTwo()

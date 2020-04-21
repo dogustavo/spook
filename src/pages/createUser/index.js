@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios'
 
-import { authSigup } from '../../ducks/auth';
 import Create from './createUser';
 
 class Register extends Component {
