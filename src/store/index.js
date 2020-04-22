@@ -1,1 +1,3 @@
-import thunk from 'redux-thunk';
+import { createStore, combineReducers } from 'redux';
+
+import { } from '../reducers/index' 
