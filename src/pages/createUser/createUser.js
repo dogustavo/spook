@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState, Component, useEffect } from 'react';
 import Modal from 'react-native-modal';
 import ImagePicker from 'react-native-image-picker';
 import { useNavigation } from '@react-navigation/native';
@@ -23,6 +23,11 @@ const userStepOne = ({ }) => {
     const [image, setImage] = useState(null);
     const [isModal, setModal] = useState(true);
     const [isStep, setStep] = useState(0);
+    const [nome, setNome] = useState('');
+
+    useEffect(()=>{
+        console.log(nome);
+    },[nome])
 
     const nextStep = () => {
         setStep(isStep + 1);
@@ -108,6 +113,7 @@ const userStepOne = ({ }) => {
                             autoCorrect={false}
                             style={createUser.input}
                             placeholderTextColor='#A39899'
+                            onChange={e => e.target.value ? setNome(e.target.value) : null}
                         />  
                     </View>
                     <View styler={createUser.WrapForm}>
@@ -117,6 +123,7 @@ const userStepOne = ({ }) => {
                             autoCorrect={false}
                             style={createUser.input}
                             placeholderTextColor='#A39899'
+
                         />  
                     </View>
                     <View styler={createUser.WrapForm}>
