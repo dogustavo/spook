@@ -43,12 +43,13 @@ const createUser = StyleSheet.create({
         ]
     },
     modalStyle:{
+        flex: 1,
         position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center',
         top: 110,
-        height: 550,
-        width: 350,
+        height: '65%',
+        width: '90%',
         backgroundColor: '#FFF',
         borderWidth: 1,
         borderRadius: 20,
@@ -67,13 +68,13 @@ const createUser = StyleSheet.create({
     modalFooter: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: 330,
+        width: '90%',
         justifyContent: 'space-around',
         marginBottom: 100
     },
     buttonCancel: {
-        width: 110,
-        height: 45,
+        width: '45%',
+        height: '45%',
         backgroundColor: '#FD3539',
         borderRadius: 7,
         elevation: 5,
@@ -82,8 +83,8 @@ const createUser = StyleSheet.create({
         marginRight: 10    
     },
     buttonNext: {
-        width: 110,
-        height: 45,
+        width: '45%',
+        height: '45%',
         backgroundColor: '#00E673',
         borderRadius: 7,
         elevation: 5,
@@ -92,8 +93,8 @@ const createUser = StyleSheet.create({
         marginLeft: 10  
     },
     buttonBack: {
-        width: 110,
-        height: 45,
+        width: '45%',
+        height: '45%',
         backgroundColor: '#A39899',
         borderRadius: 7,
         elevation: 5,
