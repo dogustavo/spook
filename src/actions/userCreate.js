@@ -1,10 +1,10 @@
 import { Types } from '../constants/index';
 
-const user = {
-    signup: task => ({
-        payload: task,
-        type: Types.SIGNUP
-    })
+export const createUser = {
+    create: payload => ({
+        type: Types.SIGNIN,
+        payload: payload
+    }) 
 }
 
-export { user }
+export { createUser }
